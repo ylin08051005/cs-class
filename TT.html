@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>输入三个数字</title>
+  <script>
+    function getNumbers() {
+      var numbers = [];
+      for (var i = 1; i <= 3; i++) {
+        var input = prompt('请输入第' + i + '个数字:');
+        var number = parseFloat(input);
+
+        // 验证输入是否为有效数字
+        while (isNaN(number)) {
+          input = prompt('请输入有效的数字:');
+          number = parseFloat(input);
+        }
+
+        numbers.push(number);
+      }
+
+      // 显示输入的数字和最大值
+      var result = 'your first input: ' + numbers[0] + '<br>' +
+                   'your second input: ' + numbers[1] + '<br>' +
+                   'your third input: ' + numbers[2] + '<br>' +
+                   'maximum: ' + Math.max.apply(null, numbers);
+
+      // 显示结果
+      document.getElementById('result').innerHTML = result;
+    }
+  </script>
+</head>
+<body>
+
+<button onclick="getNumbers()">输入三个数字</button>
+<div id="result"></div>
+
+</body>
+</html>
